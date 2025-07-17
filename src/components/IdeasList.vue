@@ -146,10 +146,10 @@ const fetchIdeas = async () => {
   const BASE_URL = 'https://suitmedia-backend.suitdev.com'
 
   const fallbackImg = 'https://images.unsplash.com/photo-1503023345310-bd7c1de61c7d'
-
+  
   ideas.value = data.data.map(item => {
     const img = item.small_image?.[0]?.url || item.medium_image?.[0]?.url
-    const imageAccessible = img && img.startsWith('http') && !img.includes('assets.suitdev.com') // valid URL & bukan yang Access Denied
+    const imageAccessible = img && img.startsWith('http') && !img.includes('assets.suitdev.com')
     return {
       ...item,
       small_image: imageAccessible ? img : fallbackImg,
