@@ -138,7 +138,7 @@ const fetchIdeas = async () => {
     sort: sort.value,
   }
 
-  const res = await axios.get('/api/ideas', { params })
+  const res = await axios.get('https://suitmedia-backend.suitdev.com/api/ideas', { params })
   const data = res.data
   console.log('small_image:', data.data[0].small_image)
   console.log('medium_image:', data.data[0].medium_image)
@@ -146,7 +146,7 @@ const fetchIdeas = async () => {
   const BASE_URL = 'https://suitmedia-backend.suitdev.com'
 
   const fallbackImg = 'https://images.unsplash.com/photo-1503023345310-bd7c1de61c7d'
-  
+
   ideas.value = data.data.map(item => {
     const img = item.small_image?.[0]?.url || item.medium_image?.[0]?.url
     const imageAccessible = img && img.startsWith('http') && !img.includes('assets.suitdev.com')
